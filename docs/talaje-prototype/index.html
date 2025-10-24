@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Talaje – Moroccan Rami Prototype</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@400;600;700&display=swap" rel="stylesheet">
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hud">
+        <div class="logo-block">
+          <div class="logo">Talaje</div>
+          <span class="subtitle">2v2 Moroccan Rami</span>
+        </div>
+        <div class="status-panels">
+          <div class="status-card" id="round-status">
+            <span class="label">Current Dealer</span>
+            <span class="value" id="dealer-label">You</span>
+          </div>
+          <div class="status-card" id="turn-status">
+            <span class="label">Active Team</span>
+            <span class="value" id="team-label">You &amp; Samira</span>
+          </div>
+          <div class="status-card" id="score-status">
+            <span class="label">Points to Open</span>
+            <span class="value">71+</span>
+          </div>
+        </div>
+      </header>
+
+      <main class="table-wrapper">
+        <div class="felt-table">
+          <div class="table-glow"></div>
+          <div class="table-grid">
+            <section class="player-seat top" data-seat="partner">
+              <header class="seat-header">
+                <span class="player-name">Samira</span>
+                <span class="team-tag">Partner</span>
+              </header>
+              <div class="hand" data-hand="partner"></div>
+              <div class="meld-zone" data-meld="partner">
+                <span class="meld-placeholder">Waiting for Talaje…</span>
+              </div>
+            </section>
+
+            <section class="player-seat left" data-seat="opponent-left">
+              <header class="seat-header">
+                <span class="player-name">Youssef</span>
+                <span class="team-tag enemy">Opponent</span>
+              </header>
+              <div class="hand vertical" data-hand="opponent-left"></div>
+              <div class="meld-zone" data-meld="opponent-left"></div>
+            </section>
+
+            <section class="table-center">
+              <div class="indicator-block">
+                <div class="indicator-label">Indicator Card</div>
+                <div class="indicator-card" id="indicator-card"></div>
+                <div class="joker-info" id="joker-info">Jokers: TBD</div>
+              </div>
+              <div class="piles">
+                <div class="pile stock" id="stock-pile">
+                  <div class="pile-label">Stock</div>
+                  <div class="pile-stack" id="stock-stack"></div>
+                  <div class="pile-count" id="stock-count"></div>
+                </div>
+                <div class="pile discard" id="discard-pile">
+                  <div class="pile-label">Discard</div>
+                  <div class="pile-stack" id="discard-stack"></div>
+                  <div class="pile-count" id="discard-count"></div>
+                </div>
+              </div>
+              <div class="rule-reminder">
+                <h3>Talaje Opening Requirements</h3>
+                <ul>
+                  <li>Minimum 71 points in melds</li>
+                  <li>At least one Tirssi (set)</li>
+                  <li>Suivi (run) required to take from discard</li>
+                </ul>
+              </div>
+            </section>
+
+            <section class="player-seat right" data-seat="opponent-right">
+              <header class="seat-header">
+                <span class="player-name">Imane</span>
+                <span class="team-tag enemy">Opponent</span>
+              </header>
+              <div class="hand vertical" data-hand="opponent-right"></div>
+              <div class="meld-zone" data-meld="opponent-right"></div>
+            </section>
+
+            <section class="player-seat bottom active" data-seat="player">
+              <header class="seat-header">
+                <span class="player-name">You</span>
+                <span class="team-tag">Dealer</span>
+              </header>
+              <div class="hand" data-hand="player"></div>
+              <div class="meld-zone" data-meld="player">
+                <span class="meld-placeholder">Form Tirssi and Suivi to Talaje</span>
+              </div>
+            </section>
+          </div>
+        </div>
+      </main>
+
+      <footer class="controls">
+        <button class="control-button" data-action="new">New Game</button>
+        <button class="control-button" data-action="deal">Deal Cards</button>
+        <button class="control-button" data-action="sort">Auto Sort Hand</button>
+        <button class="control-button" data-action="end">End Turn</button>
+      </footer>
+    </div>
+    <audio id="sfx-deal" src="sounds/deal.mp3" preload="auto"></audio>
+    <audio id="sfx-flip" src="sounds/flip.mp3" preload="auto"></audio>
+    <script src="script.js" type="module"></script>
+  </body>
+</html>
